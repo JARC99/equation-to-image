@@ -6,8 +6,9 @@ import os
 
 # %% Plotting parameters
 
-DPI = 1200
+DPI = 200
 FONTSIZE = "medium"
+FORMAT = "png"
 GRAPHICS_DIR = "graphics"
 
 sns.set_theme(style="whitegrid", font="monospace",
@@ -15,15 +16,23 @@ sns.set_theme(style="whitegrid", font="monospace",
 
 
 # %% Input equation
-eq_name = "sizing_eq"
-latex_eq = r"\frac{W_{bat}}{W_{0}} = \frac{1}{W_{0}\cdot e_{bat}\cdot\%C_{bat}}\sum E_{i} =  \frac{1}{e_{bat}\cdot \%C_{bat}}\sum\left(\frac{P}{W}\frac{\Delta r}{V}\right)_{i}"
-
-
-# %% Process string and save figure
+eq_name = "J"
+latex_eq = r"J = \frac{V_{\infty}}{n\cdot D}"
 
 eq_string = r'$\mathdefault{' + latex_eq + r'}$'
-fig, ax = plt.subplots(dpi=DPI, figsize=(0.000001, 0.000001))
+
+
+# %% Generate and save figure
+
+fig = plt.figure(dpi=DPI)
+fig.tight_layout()
+fig.text(0, 0, eq_string)
+fig.savefig(os.path.join(GRAPHICS_DIR, eq_name + '.' + FORMAT), format=FORMAT,
+            transparent=True, bbox_inches="tight", pad_inches=0)
+
+
+# %% Display equation
+
+disp_fig, ax = plt.subplots(dpi=DPI, figsize=(1e-6, 1e-6))
 ax.axis("off")
 ax.text(0.5, 0.5, eq_string, ha="center", va="center", fontsize=FONTSIZE)
-fig.savefig(os.path.join(GRAPHICS_DIR, eq_name + ".png"), format="png",
-            transparent=True, bbox_inches="tight", pad_inches=0)

@@ -1,0 +1,5 @@
+r"J = \frac{V_{\infty}}{n\cdot D}"
+r"C_{T} = \frac{T}{\frac{1}{2}\rho\cdot n^{2}\cdot D^{4}}"
+r"C_{P} = \frac{P}{\frac{1}{2}\rho\cdot n^{3}\cdot D^{5}}"
+r"\eta_{p} = J\cdot\frac{C_{T}}{C_{P}}"
+r"C_{S} = \frac{J^{5}}{C_{P}} = V\cdot \sqrt[5]{\frac{\rho}{P\cdot n^{2}}}"
